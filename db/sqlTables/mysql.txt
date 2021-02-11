@@ -1,0 +1,9 @@
+CREATE TABLE `calendar` (
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `start` DATE NOT NULL,
+  `hourev` TIME NOT NULL,
+  `title` VARCHAR(50) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY USING BTREE (`id`)
+) ENGINE=InnoDB
+ROW_FORMAT=DYNAMIC CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+;
