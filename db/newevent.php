@@ -1,11 +1,13 @@
 <?php 
         include "connection.php";
                             
-        $date = $_POST["dtEvent"];
+        $date = $_POST["start"];
         $time = $_POST["tmEvent"];
-        $description = $_POST["description"];
+        $title = $_POST["title"];~
+
+        $date = implode("-", array_reverse(explode("/", $date)));
         
-        $query = "INSERT INTO `calendar` (`start`, `hourev`, `title`) VALUES ('$date', '$time', '$description')";
+        $query = "INSERT INTO `calendar` (`start`, `hourev`, `title`) VALUES ('$date', '$time', '$title')";
         
         $exec = $connection->exec($query);                         
         

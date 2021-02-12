@@ -2,13 +2,13 @@
     //Conectando ao banco de dados
     include "connection.php";
 
-    $consSql = $connection->query("SELECT start, hourev, title FROM calendar 
+    $consSql = $connection->query("SELECT start,  TIME_FORMAT(hourev, '%h:%i') as hora, title FROM calendar 
                                 ORDER BY start, hourev"); 
 
     $vector = array();
     while ($row = $consSql->fetch(PDO::FETCH_NAMED)) { 
         $vector[] = array(
-            'title'          => $row['hourev'].': '.$row['title'],
+            'title'          => $row['hora'].': '.$row['title'],
             'start'          => $row['start'],
         );
      }

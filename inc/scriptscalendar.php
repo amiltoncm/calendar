@@ -1,5 +1,6 @@
 <script>
 $(document).ready(function() {
+
     // CARREGA CALENDÁRIO E EVENTOS DO BANCO
     $('#calendario').fullCalendar({
         header: {
@@ -11,6 +12,11 @@ $(document).ready(function() {
         editable: true,
         defaultView: 'month',
         firstDay: 0,
+        select: function(start){
+						$('#cadastrar #start').val(moment(start).format('DD/MM/YYYY'));
+						$('#cadastrar').modal('show');						
+				},
+        selectable: true,
         events: 'db/events.php',
     });
 
